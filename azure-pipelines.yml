@@ -112,7 +112,7 @@ stages:
     - deployment: Deploy
       pool:
         vmImage: 'Ubuntu-16.04'
-      environment: test
+      environment: Test
       variables:
       - group: 'Release'
       strategy:
@@ -129,7 +129,7 @@ stages:
                   package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
 - stage: 'Staging'
   displayName: 'Deploy the web application'
-  dependsOn: Build
+  dependsOn: test
   condition: |
     and
     (
