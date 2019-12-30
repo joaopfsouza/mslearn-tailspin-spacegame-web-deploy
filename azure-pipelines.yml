@@ -130,7 +130,7 @@ stages:
 - stage: 'Staging'
   displayName: 'Deploy the web application'
   dependsOn: 
-   - Dev
+   - 'Dev'
   condition: |
     and
     (
