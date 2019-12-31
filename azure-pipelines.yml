@@ -74,16 +74,14 @@ stages:
           projects: '**/*.csproj'
 
       - task: VSBuild@1
-        displayName: 'Build the database project'
         inputs:
-          project: '**/*.sqlproj'
+          solution: '**/*.sqlproj'
       
       - task: CopyFiles@2
         displayName: 'Copy dacpac file to staging direcotry'
         inputs:
-          contents: |
-            'Tailspin.SpaceGame.Database/bin/**/*.dacpac'
-          targetFolder: '$(Build.StagingDirectory)'
+          Contents: 'Tailspin.SpaceGame.Database/bin/**/*.dacpac'
+          TargetFolder: '$(Build.StagingDirectory)'
       
       - publish: '$(Build.StagingDirectory)'
         artifact: dropDacpac
