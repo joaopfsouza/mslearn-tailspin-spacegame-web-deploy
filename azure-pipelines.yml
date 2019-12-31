@@ -142,7 +142,7 @@ stages:
         runOnce:
           deploy:
             steps:
-              - download: cuttent
+              - download: current
                 artifact: dropDacpac
                 patterns: '**/*'
                 
