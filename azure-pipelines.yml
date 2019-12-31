@@ -74,9 +74,8 @@ stages:
           projects: '**/*.csproj'
 
       - task: VSBuild@1
-        displayName: 'Build the database project'
         inputs:
-          project: '**/*.sqlproj'
+          solution: '**/*.sqlproj'
       
       - task: CopyFiles@2
         displayName: 'Copy dacpac file to staging direcotry'
