@@ -105,12 +105,11 @@ stages:
                 artifact: dropDacpac
                 patterns: '**/*'
               - task: SqlAzureDacpacDeployment@1
-                displayName: 'Generate schema change script'
                 inputs:
                   azureSubscription: 'Space Game - web - Database'
                   AuthenticationType: 'server'
-                  ServerName: '$(servename).database.windows.net'
-                  databaseName: '$(databasename)'
+                  ServerName: '$(servername).database.windows.net'
+                  DatabaseName: '$(databasename)'
                   SqlUsername: '$(adminlogin)'
                   SqlPassword: '$(adminPassword)'
                   deployType: 'DacpacTask'
@@ -173,7 +172,7 @@ stages:
       vmImage: 'Ubuntu-16.04'
     environment: dev
     variables:
-    - group: Release
+    - group: 'Release'
     strategy:
       runOnce:
         deploy:
