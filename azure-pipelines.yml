@@ -80,9 +80,8 @@ stages:
       - task: CopyFiles@2
         displayName: 'Copy dacpac file to staging direcotry'
         inputs:
-          contents: |
-            'Tailspin.SpaceGame.Database/bin/**/*.dacpac'
-          targetFolder: '$(Build.StagingDirectory)'
+          Contents: 'Tailspin.SpaceGame.Database/bin/**/*.dacpac'
+          TargetFolder: '$(Build.StagingDirectory)'
       
       - publish: '$(Build.StagingDirectory)'
         artifact: dropDacpac
